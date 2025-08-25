@@ -1,0 +1,77 @@
+.header {
+    background: #000;
+}
+
+.header__inner {
+    margin: 0 auto;
+    padding: 20px 15px;
+    max-width: 1230px;
+}
+
+
+.header__logo {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.contact {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.contact form {
+    display: inline-block;
+    /* 中央に配置するため */
+    text-align: left;
+    /* フォーム内は左寄せ */
+}
+
+table,
+th,
+td {
+    border: 1px solid #aaa;
+    /* 枠線を黒色に */
+    border-collapse: collapse;
+    /* 枠線を重ねてスッキリ */
+}
+
+th,
+td {
+    padding: 8px;
+    /* 内側の余白 */
+    text-align: left;
+    /* 文字の位置（左寄せ） */
+}
+
+th {
+    text-align: center;
+    background-color: #ddd;
+    padding: 10px 20px;
+}
+
+td {
+    width: 700px;
+    padding: 0 10px;
+}
+
+button {
+    display: block;
+    margin: auto;
+    width: 200px;
+    margin: 20px auto;
+    background-color: black;
+    /* 背景黒 */
+    color: #CCC;
+    /* 文字色グレー */
+    padding: 5px 20px;
+    /* 余白 */
+    border: none;
+    /* 枠線なし */
+    border-radius: 5px;
+    /* 角丸 */
+    font-size: 16px;
+    cursor: pointer;
+}
