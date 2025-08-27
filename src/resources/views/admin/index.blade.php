@@ -26,9 +26,9 @@
                 <option value="3">その他</option>
             </select>
             <select name="category_id">
-                <option value="0">お問い合わせの種類</option>
+                <option>お問い合わせの種類</option>
                 @foreach($categories as $category)
-                    <option value="{{$category}}">{{$category}}</option>
+                    <option value="{{$category->id}}">{{$category->content}}</option>
                 @endforeach
             </select>
             <input name="date" type="date">
@@ -41,7 +41,7 @@
 
     <div class="page">
         <a href="/admin/export" class="export-btn">エクスポート</a>
-        {{$contacts->links();}}
+        <!-- {{$contacts->links();}} -->
     </div>
 
     <div class="contacts">
@@ -53,13 +53,15 @@
                 <th>お問い合わせの種類</th>
                 <th></th>
             </tr>
+            @foreach($contacts as $contact)
             <tr class="contact-table__row font-color">
-                <td>山田太郎</td>
-                <td>男性</td>
-                <td>test@example.com</td>
-                <td>商品の交換について</td>
+                <td>{{$contact->last_name." ".$contact->first_name}}</td>
+                <td>{{$contact->gender}}</td>
+                <td>{{$contact->email}}</td>
+                <td>{{$contact->category->content}}</td>
                 <td><a href="*" class="detail-btn">詳細</a></td>
             </tr>
+            @endforeach
         </table>
     </div>
 </div>

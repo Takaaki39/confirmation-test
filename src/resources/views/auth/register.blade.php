@@ -42,10 +42,6 @@
                 <span>パスワード</span>
                 <input type="password" name="password" placebolder="例)coachtech1106">
             </div>
-            <div class="form-password">
-                <span>確認用パスワード</span>
-                <input type="password" name="password_confirmation" placebolder="例)coachtech1106">
-            </div>
             <button type="submit" class="form-button">登録</button>
         </form>
     </div>

@@ -21,5 +21,6 @@ Route::post('/thanks', [ContactController::class, 'store']);
 
 Route::middleware('auth')->group(function(){
     Route::get('/admin', [AdminContactsController::class, 'index']);
+    Route::get('/admin/export', [AdminContactsController::class, 'export']);
 });
 

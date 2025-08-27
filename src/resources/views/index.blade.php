@@ -22,7 +22,12 @@
               <input type="text" name="first_name" placeholder="例）太郎" value="太郎"/>
             </div>
             <div class="form__error">
-              <!--バリデーション機能を実装したら記述します。-->
+              @error('last_name')
+                {{$errors->first('last_name')}}
+              @enderror
+              @error('first_name')
+                {{$errors->first('first_name')}}
+              @enderror
             </div>
           </div>
         </div>
@@ -33,12 +38,17 @@
           </div>
           <div class="form__group-content">
             <div class="form__input--text">
-                <label><input type="radio" name="gender" checked> 男性</label>
-                <label><input type="radio" name="gender"> 女性</label>
-                <label><input type="radio" name="gender"> その他</label>
+                <input type="radio" id="men" name="gender" value="1" checked>
+                  <label for="men">男性</label>
+                <input type="radio" id="women" name="gender" value="2">
+                  <label for="women">女性</label>
+                <input type="radio" id="other" name="gender" value="3">
+                  <label for="other">その他</label>
             </div>
             <div class="form__error">
-              <!--バリデーション機能を実装したら記述します。-->
+              @error('gender')
+                {{$errors->first('gender')}}
+              @enderror
             </div>
           </div>
         </div>
@@ -52,7 +62,9 @@
               <input type="email" name="email" placeholder="test@example.com" value="test@example.com"/>
             </div>
             <div class="form__error">
-              <!--バリデーション機能を実装したら記述します。-->
+              @error('email')
+                {{$errors->first('email')}}
+              @enderror
             </div>
           </div>
         </div>
@@ -70,7 +82,15 @@
                 <input type="text" name="tel3" placeholder="5678" value="2222">
             </div>
             <div class="form__error">
-              <!--バリデーション機能を実装したら記述します。-->
+              @error('tel1')
+                {{$errors->first('tel1')}}
+              @enderror
+              @error('tel2')
+                {{$errors->first('tel2')}}
+              @enderror
+              @error('tel3')
+                {{$errors->first('tel3')}}
+              @enderror
             </div>
           </div>
         </div>
@@ -84,7 +104,9 @@
               <input type="text" name="address" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3" value="東京都渋谷区千駄ヶ谷1-2-3">
             </div>
             <div class="form__error">
-              <!--バリデーション機能を実装したら記述します。-->
+              @error('address')
+                {{$errors->first('address')}}
+              @enderror
             </div>
           </div>
         </div>
@@ -97,7 +119,9 @@
               <input type="text" name="building" placeholder="例: 千駄ヶ谷マンション101" value="千駄ヶ谷マンション101">
             </div>
             <div class="form__error">
-              <!--バリデーション機能を実装したら記述します。-->
+              @error('building')
+                {{$errors->first('building')}}
+              @enderror
             </div>
           </div>
         </div>
@@ -110,13 +134,15 @@
             <div class="form__input--text">
                 <select name="category_id">
                     <option>選択してください</option>
-                    <option>ご質問</option>
-                    <option>ご相談</option>
-                    <option>その他</option>
+                    @foreach($categories as $category)
+                      <option value="{{$category->id}}">{{$category->content}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form__error">
-              <!--バリデーション機能を実装したら記述します。-->
+              @error('category_id')
+                {{$errors->first('category_id')}}
+              @enderror
             </div>
           </div>
         </div>
@@ -128,6 +154,11 @@
           <div class="form__group-content">
             <div class="form__input--textarea">
               <textarea name="detail" placeholder="資料をいただきたいです">資料をいただきたいです</textarea>
+            </div>
+            <div class="form__error">
+              @error('detail')
+                {{$errors->first('detail')}}
+              @enderror
             </div>
           </div>
         </div>

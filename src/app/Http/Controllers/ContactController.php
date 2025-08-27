@@ -3,18 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ContactsRequest;
+use App\Models\Category;
 
 class ContactController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $categories = Category::all();
+        return view('index', compact('categories'));
     }
 
-    public function confirm(Request $request)
+    public function confirm(ContactsRequest $request)
     {
         $value = $request->only([
-            'last_name','first_name',
+            'last_name',
+            'first_name',
             'gender',
             'email',
             'tel1',
@@ -25,10 +29,10 @@ class ContactController extends Controller
             'category_id',
             'detail',
         ]);
-        $name = $value['last_name'].$value['first_name'];
         $tel = $value['tel1'].$value['tel2'].$value['tel3'];
         $content = [
-            'name' => $name,
+            'last_name' => $value['last_name'],
+            'first_name' => $value['first_name'],
             'gender' => $value['gender'],
             'email' => $value['email'],
             'tel' => $tel,

@@ -13,9 +13,18 @@
     <div class="auth-form__heading font-color">
         Login
     </div>
-@if (Auth::check())
-ログイン中
+
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
+
     <div class="form-container">
         <form class="form" action="/login" method="post">
             @csrf
