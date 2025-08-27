@@ -1,0 +1,53 @@
+body {
+    background-color: #F1ECE7;
+}
+
+.header-btn {
+    justify-content: center;
+    position: absolute;
+    right: 10%;
+    width: 100px;
+    height: 34px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #e0d9d3;
+    border-radius: 2px;
+    background: #faf9f8;
+    color: #D9C6B5;
+}
+
+.header-btn:hover {
+    background: #eae6e3;
+}
+
+.auth-form {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.auth-form__heading {
+    font-size: 35px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.form-container {
+    display: flex;
+}
+
+.form {
+    margin: 0 auto;
+    width: 736px;
+    height: 579px;
+    background-color: #fff;
+}
+
+.form-button {
+    padding: 10px 40px;
+    background-color: #82756A;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+}

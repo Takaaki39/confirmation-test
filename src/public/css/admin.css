@@ -1,0 +1,100 @@
+.header-btn {
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 10%;
+    width: 100px;
+    height: 34px;
+    text-align: center;
+    border: 1px solid #e0d9d3;
+    border-radius: 2px;
+    background: #faf9f8;
+    color: #D9C6B5;
+}
+
+.header-btn:hover {
+    background: #eae6e3;
+}
+
+.header-logout {
+    font-family: "Inika", serif;
+    font-weight: 400;
+    font-style: Regular;
+    color: #D9C6B5;
+    padding-top: 4px;
+    font-size: 20px;
+    background: none;
+    border: none;
+}
+
+.admin {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.admin-heading {
+    font-size: 35px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.admin-heading a {
+    color: #8B7969;
+    text-decoration: none;
+}
+
+.admin {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.search {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.search-form {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.page {
+    margin-top: 15px;
+}
+
+.contacts {
+    width: 100%;
+}
+
+.contact-table__inner {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.contact-table__header-row {
+    background-color: #8B7969;
+    color: #fff;
+    text-align: left;
+}
+
+.contact-table__header-row th {
+    padding: 10px 20px;
+}
+
+.contact-table__row {
+    border: 1px solid #E0DFDE;
+    text-align: left;
+}
+
+.contact-table__row td {
+    padding: 10px 20px;
+}
+
+.detail-btn {
+    padding: 8px 20px;
+    background-color: #F4F4F4;
+    border: 1px solid #D9C6B5;
+}
