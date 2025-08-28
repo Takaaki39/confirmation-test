@@ -13,37 +13,41 @@
     <div class="auth-form__heading font-color">
         Register
     </div>
-
-
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
-
-
-    <div class="form-container">
-        <form class="form" action="/register" method="post">
-            @csrf
-            <div class="form-name">
-                <span>お名前</span>
-                <input type="text" name="name" placeholder="例)山田　太郎">
-            </div>
-            <div class="form-email">
-                <span>メールアドレス</span>
-                <input type="email" name="email" placeholder="例)test@example.com">
-            </div>
-            <div class="form-password">
-                <span>パスワード</span>
-                <input type="password" name="password" placebolder="例)coachtech1106">
-            </div>
-            <button type="submit" class="form-button">登録</button>
-        </form>
+    <div class="login-container">
+        <div>
+            <form class="form-wrapper" action="/register" method="post">
+                @csrf
+                <div class="form-group">
+                    <label for="name">お名前</label>
+                    <input type="text" name="name" id="name" placeholder="例: 山田　太郎">
+                    <div class="error-message">
+                        @error('name')
+                        {{$errors->first('name')}}
+                        @enderror
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">メールアドレス</label>
+                    <input name="email" type="email" id="email" placeholder="例: test@example.com">
+                    <div class="error-message">
+                        @error('email')
+                        {{$errors->first('email')}}
+                        @enderror
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">パスワード</label>
+                    <input name="password" type="password" id="password" placeholder="例: coachtech1106">
+                    <div class="error-message">
+                        @error('password')
+                        {{$errors->first('password')}}
+                        @enderror
+                    </div>
+                </div>
+                <button type="submit" class="login-button">登録</button>
+            </form>
+        </div>
     </div>
 </div>
+
 @endsection

@@ -27,10 +27,8 @@ class ContactController extends Controller
         }
     }
 
-    //public function confirm(ContactsRequest $request)
-    public function confirm(Request $request)
+    public function confirm(ContactsRequest $request)
     {
-        /*
         $value = $request->only([
             'last_name',
             'first_name',
@@ -49,15 +47,15 @@ class ContactController extends Controller
             'last_name'     => $value['last_name'],
             'first_name'    => $value['first_name'],
             'gender'        => $value['gender'],
+            'gender_name'   => $this->getGender($value['gender']),
             'email'         => $value['email'],
             'tel'           => $tel,
             'address'       => $value['address'],
             'building'      => $value['building'],
-            'category_id'   => $value['category_id'],
+            'category'      => Category::find($value['category_id']),
             'detail'        => $value['detail']
         ];
-        */
-        
+        /*
         $content = [
             'last_name'     => '山田',
             'first_name'    => '太郎',
@@ -70,6 +68,7 @@ class ContactController extends Controller
             'category'      => Category::find(1),
             'detail'        => '届いた商品が注文した商品ではありませんでした。商品の取り換えをお願いします。届いた商品が注文した商品ではありませんでした。商品の取り換えをお願いします。',
         ];
+        */
         return view('contact/confirm', compact('content'));
     }
 
