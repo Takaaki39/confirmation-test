@@ -17,14 +17,16 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お名前</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="last_name" value="{{$content['last_name']}}" readonly/>
-                        <input type="text" name="first_name" value="{{$content['first_name']}}" readonly/>
+                        <input type="hidden" name="last_name" value="{{$content['last_name']}}" readonly/>
+                        <input type="hidden" name="first_name" value="{{$content['first_name']}}" readonly/>
+                        <input type="text" name="name" value="{{$content['last_name'].'  '.$content['first_name']}}" readonly/>
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">性別</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="gender" value="{{$content['gender']}}" readonly/>
+                        <input type="hidden" name="gender" value="{{$content['gender']}}" readonly/>
+                        <input type="text" name="gender_name" value="{{$content['gender_name']}}" readonly/>
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
@@ -54,19 +56,21 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お問い合わせの種類</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="category_id" value="{{$content['category_id']}}" readonly/>
+                        <input type="hidden" name="category_id" value="{{$content['category']->id}}" readonly/>
+                        <input type="text" name="category_content" value="{{$content['category']->content}}" readonly/>
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お問い合わせ内容</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="detail" value="{{$content['detail']}}" readonly/>
+                        <textarea name="detail" readonly>{{$content['detail']}}</textarea>
                     </td>
                 </tr>
             </table>
         </div>
         <div class="form__button">
             <button class="form__button-submit" type="submit">送信</button>
+            <a href="/" class="form__button-fix">修正</a>
         </div>
     </form>
 </div>

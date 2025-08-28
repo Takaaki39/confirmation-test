@@ -12,12 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Gorditas:wght@400;700&family=Inika:wght@400;700&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main>
-        <div class="thanks-container">
-            <h1 class="background-text">Thank you</h1>
-            <p class="message">お問い合わせありがとうございました</p>
-            <a href="/" class="home-btn">HOME</a>
+    <div class="container">
+        <div class="background-text">Thank you</div>
+        <div class="content">
+            <p>お問い合わせありがとうございました</p>
+            <button onclick="location.href='/'">HOME</button>
         </div>
-    </main>
+    </div>
 </body>
 </html>

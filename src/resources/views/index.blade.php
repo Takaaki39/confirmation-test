@@ -18,8 +18,8 @@
           </div>
           <div class="form__group-content">
             <div class="form__input--text">
-              <input type="text" name="last_name" placeholder="例）山田" value="山田"/>
-              <input type="text" name="first_name" placeholder="例）太郎" value="太郎"/>
+              <input class="form__input--last-name" type="text" name="last_name" placeholder="例: 山田"/>
+              <input type="text" name="first_name" placeholder="例: 太郎"/>
             </div>
             <div class="form__error">
               @error('last_name')
@@ -37,13 +37,19 @@
             <span class="form__label--required">※</span>
           </div>
           <div class="form__group-content">
-            <div class="form__input--text">
-                <input type="radio" id="men" name="gender" value="1" checked>
-                  <label for="men">男性</label>
-                <input type="radio" id="women" name="gender" value="2">
-                  <label for="women">女性</label>
-                <input type="radio" id="other" name="gender" value="3">
-                  <label for="other">その他</label>
+            <div class="form__input--text-radio">
+                <label class="font-color">
+                  <input type="radio" id="men" name="gender" value="1" checked>
+                  男性
+                </label>
+                <label class="font-color">
+                  <input type="radio" id="women" name="gender" value="2">
+                  女性
+                </label>
+                <label class="font-color">
+                  <input type="radio" id="other" name="gender" value="3">
+                  その他
+                </label>
             </div>
             <div class="form__error">
               @error('gender')
@@ -59,7 +65,7 @@
           </div>
           <div class="form__group-content">
             <div class="form__input--text">
-              <input type="email" name="email" placeholder="test@example.com" value="test@example.com"/>
+              <input type="email" name="email" placeholder="例: test@example.com"/>
             </div>
             <div class="form__error">
               @error('email')
@@ -74,22 +80,24 @@
             <span class="form__label--required">※</span>
           </div>
           <div class="form__group-content">
-            <div class="form__input--text">
-                <input type="text" name="tel1" placeholder="080" value="000">
-                <span>-</span>
-                <input type="text" name="tel2" placeholder="1234" value="1111">
-                <span>-</span>
-                <input type="text" name="tel3" placeholder="5678" value="2222">
+            <div class="form__input--text-tel">
+                <input type="text" name="tel1" placeholder="080">
+                <span class="form__input--text-span">-</span>
+                <input type="text" name="tel2" placeholder="1234">
+                <span class="form__input--text-span">-</span>
+                <input type="text" name="tel3" placeholder="5678">
             </div>
             <div class="form__error">
               @error('tel1')
                 {{$errors->first('tel1')}}
-              @enderror
-              @error('tel2')
-                {{$errors->first('tel2')}}
-              @enderror
-              @error('tel3')
-                {{$errors->first('tel3')}}
+                @else
+                @error('tel2')
+                  {{$errors->first('tel2')}}
+                  @else
+                    @error('tel3')
+                      {{$errors->first('tel3')}}
+                    @enderror
+                @enderror
               @enderror
             </div>
           </div>
@@ -101,7 +109,7 @@
           </div>
           <div class="form__group-content">
             <div class="form__input--text">
-              <input type="text" name="address" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3" value="東京都渋谷区千駄ヶ谷1-2-3">
+              <input type="text" name="address" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3">
             </div>
             <div class="form__error">
               @error('address')
@@ -116,7 +124,7 @@
           </div>
           <div class="form__group-content">
             <div class="form__input--text">
-              <input type="text" name="building" placeholder="例: 千駄ヶ谷マンション101" value="千駄ヶ谷マンション101">
+              <input type="text" name="building" placeholder="例: 千駄ヶ谷マンション101">
             </div>
             <div class="form__error">
               @error('building')
@@ -132,7 +140,7 @@
           </div>
           <div class="form__group-content">
             <div class="form__input--text">
-                <select name="category_id">
+                <select class="form__input--text-select" name="category_id">
                     <option>選択してください</option>
                     @foreach($categories as $category)
                       <option value="{{$category->id}}">{{$category->content}}</option>
@@ -163,7 +171,7 @@
           </div>
         </div>
         <div class="form__button">
-          <button class="form__button-submit" type="submit">送信</button>
+          <button class="form__button-submit" type="submit">確認画面</button>
         </div>
     </form>
 </div>

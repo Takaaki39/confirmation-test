@@ -55,18 +55,108 @@
 .form__input--textarea textarea {
     padding: 10px;
     width: 100%;
-    border: 1px solid #ddd;
+    border: none;
     border-radius: 3px;
+    background-color: #F4F4F4;
+    color: #BEB1A6;
 
     appearance: none;
 }
 
 .form__input--text input {
     height: 40px;
+    padding: 5px 20px;
+    border: none;
 }
 
 .form__input--textarea textarea {
     height: 130px;
+    padding: 15px 20px;
+}
+
+.form__input--last-name {
+    margin-right: 10%;
+}
+
+.form__input--text-radio {
+    display: flex;
+    gap: 14%;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.form__input--text-radio label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.form__input--text-radio input[type="radio"] {
+    appearance: none;
+    /* デフォルト消す */
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #8b7969;
+    /* 枠線 */
+    border-radius: 50%;
+    /* 丸にする */
+    cursor: pointer;
+    margin-right: 6px;
+    position: relative;
+    align-items: center;
+}
+
+.form__input--text-radio input[type="radio"]:checked {
+    background-color: #8b7969;
+    /* 枠と同じ色で塗りつぶし */
+}
+
+.form__input--text-tel {
+    display: flex;
+}
+
+.form__input--text-tel input {
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    appearance: none;
+    height: 40px;
+    background-color: #F4F4F4;
+    color: #BEB1A6;
+    padding: 15px 30px;
+    text-align: center;
+}
+
+.form__input--text-span {
+    align-items: center;
+    margin: 10px 10px;
+}
+
+.form__input--text-select {
+    background-color: #F4F4F4;
+    width: 50%;
+    color: #BEB1A6;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-size: 14px;
+
+    appearance: none;
+    /* デフォルトの矢印を消す */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: linear-gradient(45deg, transparent 50%, #BEB1A6 50%),
+        linear-gradient(-45deg, transparent 50%, #BEB1A6 50%);
+    background-position: calc(100% - 25px) center, calc(100% - 17px) center;
+    background-size: 10px 10px, 10px 10px;
+    background-repeat: no-repeat;
+}
+
+.form__input--text-select::-ms-expand {
+    display: none;
 }
 
 .form__button {
@@ -76,11 +166,15 @@
 .form__button-submit {
     padding: 10px;
     margin-bottom: 50px;
-    width: 30%;
+    width: 160px;
     height: 50px;
     border: none;
     border-radius: 3px;
-    background: #000;
+    background: #82756A;
     color: #fff;
+    font-family: "Inika", serif;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
     cursor: pointer;
 }
