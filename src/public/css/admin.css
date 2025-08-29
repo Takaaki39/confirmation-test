@@ -50,25 +50,121 @@
 }
 
 .search {
-    background-color: aquamarine;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     width: 100%;
 }
 
 .search-form {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    flex: 1;
+    gap: 3%;
 }
+
+.reset-form {
+    display: flex;
+    margin-left: 2%;
+}
+
+.text-setting {
+    background-color: #fbfbfb;
+    border: 1px solid #e3ded9;
+    color: #8B7969;
+    font-size: 16px
+}
+
+.search-form__input {
+    width: 40%;
+    padding: 10px 10px;
+}
+
+.appearance {}
+
+
+.search-form__gender {
+    width: 10%;
+    padding: 10px 10px;
+}
+
+.search-form__category {
+    width: 25%;
+    padding: 10px 10px;
+}
+
+.search-form__date {
+    width: 17%;
+    padding: 10px 10px;
+}
+
+.search-button {
+    width: 100px;
+    background-color: #82756A;
+    color: #fff;
+    border: 1px solid #8B7969;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.reset-button {
+    width: 80px;
+    background-color: #D9C6B5;
+    color: #fff;
+    border: 1px solid #D9C6B5;
+    border-radius: 3px;
+}
+
+
 
 .page {
     display: flex;
-    justify-content: flex-start;
-    margin-top: 15px;
+    justify-content: space-between;
+    margin-top: 25px;
 }
+
+.export-btn {
+    padding: 8px 15px;
+    background-color: #E1DBD6;
+    color: #8B7969;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+svg {
+    border: 1px solid #E0DFDE;
+    color: #8B7969;
+}
+
+svg.w-5.h-5 {
+    /*paginateメソッドの矢印の大きさ調整のために追加*/
+    width: 30px;
+    height: 30px;
+}
+
+.pagenation {
+    display: flex;
+}
+
+.pagenation-number {
+    width: 30px;
+    color: #8B7969;
+    border: 1px solid #E0DFDE;
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+}
+
+.pagenation-current-number {
+    width: 30px;
+    background-color: #8B7969;
+    color: #fff;
+    border: none;
+}
+
 
 .contacts {
     width: 100%;
+    margin-top: 25px;
 }
 
 .contact-table__inner {
@@ -83,7 +179,7 @@
 }
 
 .contact-table__header-row th {
-    padding: 10px 20px;
+    padding: 15px 20px;
 }
 
 .contact-table__row {
@@ -92,11 +188,104 @@
 }
 
 .contact-table__row td {
-    padding: 10px 20px;
+    padding: 15px 20px;
 }
 
 .detail-btn {
     padding: 8px 20px;
     background-color: #F4F4F4;
+    color: #D9C6B5;
     border: 1px solid #D9C6B5;
+    text-decoration: none;
+}
+
+.modal-checkbox {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 60%);
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #8B7969;
+    border-radius: 50%;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1;
+    background-color: #fff;
+    transition: 0.3s;
+}
+
+.close:hover {
+    background-color: #8B7969;
+    color: #fff;
+}
+
+.modal-wrapper {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    padding: 50px;
+    margin: auto;
+    background-color: #FEFEFE;
+    border: 1px solid #8B7969;
+    border-radius: 5px;
+}
+
+.modal-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px auto;
+}
+
+.modal-content h1 {
+    width: 40%;
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.2em;
+    letter-spacing: -0.02em;
+}
+
+.modal-content p {
+    width: 60%;
+}
+
+.modal-checkbox:checked+.modal {
+    display: flex;
+}
+
+.delete-button {
+    display: flex;
+    justify-content: center;
+}
+
+.delete-button button {
+    background-color: #BA370D;
+    color: #fff;
+    padding: 5px 15px;
+    margin-top: 50px;
+    border: none;
+    border-radius: 3px;
 }

@@ -16,57 +16,80 @@ class AdminContactsController extends Controller
         return view('admin/index', compact(['contacts','categories']));
     }
 
-    public function export()
+    public function search(Request $request)
     {
-        $fileName = 'contacts_' . date('Ymd_His') . '.csv';
+        $contacts = Contact::with('category')
+        ->NameSearch($request->input)
+        ->GenderSearch($request->gender)
+        ->CategorySearch($request->category_id)
+        ->DateSearch($request->search_date)
+        ->paginate(7)
+        ->appends([
+            'input'         => $request->input,
+            'gender'        => $request->gender,
+            'category_id'   => $request->category_id,
+            'search_date'   => $request->search_date,
+        ]);
+
+        $categories = Category::all();
+        return view('admin/index', compact(['contacts','categories']));
+    }
+
+    public function delete(Request $request)
+    {
+        Contact::find($request->id)->delete();
+        return redirect('/admin');
+    }
+
+    public function export(Request $request)
+    {
+        dd($request);
+        $allContacts = Contact::with('category')
+            ->NameSearch($request->input('input'))
+            ->GenderSearch($request->input('gender'))
+            ->CategorySearch($request->input('category_id'))
+            ->DateSearch($request->input('search_date'))
+            ->get();
+
+        $filename = 'contacts_' . now()->format('Ymd_His') . '.csv';
+
         $headers = [
-            'Content-type'        => 'text/csv; charset=UTF-8',
-            'Content-Disposition' => "attachment; filename={$fileName}",
-            'Pragma'              => 'no-cache',
-            'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0',
-            'Expires'             => '0',
-        ];
-        $columns = [
-            'id',
-            'first_name', 
-            'last_name', 
-            'gender', 
-            'email', 
-            'tel', 
-            'address',
-            'building',
-            'category_id',
-            'detail',
-            'created_at',
-            'updated_at'
+            "Content-type"        => "text/csv; charset=UTF-8",
+            "Content-Disposition" => "attachment; filename={$filename}",
+            "Pragma"              => "no-cache",
+            "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"             => "0"
         ];
 
-        $callback = function() use ($columns) {
-            // BOM を先頭に付けると Excel（Windows）で文字化けしにくくなる
-            echo "\xEF\xBB\xBF";
+        $callback = function() use ($allContacts) {
+            $handle = fopen('php://output', 'w');
 
-            $output = fopen('php://output', 'w');
+            // 文字化け防止 (Excel想定なら BOM を付与)
+            fputs($handle, "\xEF\xBB\xBF");
+
             // ヘッダー行
-            fputcsv($output, $columns);
+            fputcsv($handle, ['ID', '姓', '名', '性別', 'メールアドレス', '電話番号', '住所', '建物名', 'カテゴリ', '詳細', '作成日']);
 
-            // チャンクで取り出してメモリ消費を抑える
-            Contact::chunk(1000, function($contacts) use ($output, $columns) {
-                foreach ($contacts as $contact) {
-                    $row = [];
-                    foreach ($columns as $col) {
-                        // created_at 等を文字列化
-                        $value = data_get($contact, $col);
-                        if ($value instanceof \Illuminate\Support\Carbon) {
-                            $value = $value->toDateTimeString();
-                        }
-                        $row[] = $value;
-                    }
-                    fputcsv($output, $row);
-                }
-            });
+            // データ行
+            foreach ($allContacts as $contact) {
+                fputcsv($handle, [
+                    $contact->id,
+                    $contact->last_name,
+                    $contact->first_name,
+                    $contact->genderLabel(),
+                    $contact->email,
+                    $contact->tel,
+                    $contact->address,
+                    $contact->building,
+                    optional($contact->category)->content,
+                    $contact->detail,
+                    $contact->created_at->format('Y-m-d H:i:s'),
+                ]);
+            }
 
-            fclose($output);
+            fclose($handle);
         };
-        return new StreamedResponse($callback, 200, $headers);
+
+        return response()->stream($callback, 200, $headers);
     }
 }
