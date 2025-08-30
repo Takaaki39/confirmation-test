@@ -38,7 +38,7 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">電話番号</th>
                     <td class="confirm-table__text">
-                        <input type="tel" name="tel" value="{{$content['tel']}}" readonly/>
+                        <input type="tel" name="tel" value="{{$content['tel1'].$content['tel2'].$content['tel3']}}" readonly/>
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
@@ -70,8 +70,23 @@
         </div>
         <div class="form__button">
             <button class="form__button-submit" type="submit">送信</button>
-            <a href="/" class="form__button-fix">修正</a>
+            </form>
+            <!-- <a href="/" class="form__button-fix">修正</a> -->
+            <form action="/fix" method="post">
+                @csrf
+                <input type="hidden" name="last_name" value="{{$content['last_name']}}" readonly/>
+                <input type="hidden" name="first_name" value="{{$content['first_name']}}" readonly/>
+                <input type="hidden" name="gender" value="{{$content['gender']}}" readonly/>
+                <input type="hidden" name="email" value="{{$content['email']}}" readonly/>
+                <input type="hidden" name="tel1" value="{{$content['tel1']}}" readonly/>
+                <input type="hidden" name="tel2" value="{{$content['tel2']}}" readonly/>
+                <input type="hidden" name="tel3" value="{{$content['tel3']}}" readonly/>
+                <input type="hidden" name="address" value="{{$content['address']}}" readonly/>
+                <input type="hidden" name="building" value="{{$content['building']}}" readonly/>
+                <input type="hidden" name="category_id" value="{{$content['category']->id}}" readonly/>
+                <input type="hidden" name="detail" value="{{$content['detail']}}" readonly/>
+                <button class = "form__button-fix" type="submit">修正</button>
+            </form>
         </div>
-    </form>
 </div>
 @endsection

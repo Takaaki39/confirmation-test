@@ -43,7 +43,6 @@ class AdminContactsController extends Controller
 
     public function export(Request $request)
     {
-        dd($request);
         $allContacts = Contact::with('category')
             ->NameSearch($request->input('input'))
             ->GenderSearch($request->input('gender'))

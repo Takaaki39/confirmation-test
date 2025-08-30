@@ -26,7 +26,7 @@ body {
     transform: translate(-50%, -50%);
     white-space: nowrap;
     pointer-events: none;
-    font-family: "Inika", serif;
+    font-family: "Inika", sans-serif;
     font-weight: 400;
     font-style: Regular;
 }
@@ -50,7 +50,7 @@ body {
     padding: 7px 30px;
     cursor: pointer;
     font-size: 1rem;
-    font-family: "Inika", serif;
+    font-family: "Inika", sans-serif;
     font-weight: 400;
     font-style: Regular;
 }

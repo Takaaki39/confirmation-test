@@ -49,7 +49,9 @@ class ContactController extends Controller
             'gender'        => $value['gender'],
             'gender_name'   => $this->getGender($value['gender']),
             'email'         => $value['email'],
-            'tel'           => $tel,
+            'tel1'          => $value['tel1'],
+            'tel2'          => $value['tel2'],
+            'tel3'          => $value['tel3'],
             'address'       => $value['address'],
             'building'      => $value['building'],
             'category'      => Category::find($value['category_id']),
@@ -70,6 +72,11 @@ class ContactController extends Controller
         ];
         */
         return view('contact/confirm', compact('content'));
+    }
+
+    public function backToIndex(Request $request)
+    {
+        return redirect('/')->withInput();
     }
 
     public function store(Request $request)
