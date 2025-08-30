@@ -16,12 +16,12 @@ Laravel環境構築
 6. php artisan db:seed
 
 ## 使用技術(実行環境)
-- php 8.1
-- Laravel 10.0
+- php 8.1.33
+- Laravel 8.83.29
 - MySQL 8.0.26
 
 ## ER図
-< - - - 作成したER図の画像 - - - >
+![alt text](src/docs/diagrams.png)
 
 ## URL
 - 開発環境：http://localhost/
