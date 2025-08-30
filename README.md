@@ -3,7 +3,8 @@
 ## 環境構築
 Dockerビルド
 1. git clone git@github.com:Takaaki39/confirmation-test.git
-2. docker-compose up -d --build
+2. cd confirmation-test/
+3. docker-compose up -d --build
 
 ※MySQLはOSによって起動しない場合があるのでそれぞれのPCに合わせてdocker-compose.ymlファイルを編集してください。
 
